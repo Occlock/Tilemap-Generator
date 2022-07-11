@@ -477,6 +477,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5440b7c1bf6b8a346b68b20dedfb674f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterMin: 820
+  waterMax: 1640
+  grassMin: 820
+  grassMax: 1640
+  earthMin: 820
+  earthMax: 1640
+  tilemapSizeX: 64
+  tilemapSizeY: 64
   tileGround:
   - {fileID: 11400000, guid: 4ef1d1e32f6caf942bb1096084119149, type: 2}
   - {fileID: 11400000, guid: ffae9876d085b794282d21a132bed0e1, type: 2}
