@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(fileName = "so_Tiles", menuName = "ScriptableObjects/Tiles")]
+[CreateAssetMenu(fileName = "Tiles", menuName = "ScriptableObjects/Tiles")]
 public class SO_Tiles : ScriptableObject
 {
-    public List<Tile> tiles = new List<Tile>();
+    public Tile[] tiles;
 }

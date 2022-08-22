@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e8e007899a3ed4682310a4192fcc60, type: 3}
+  m_Name: HighGrassTiles
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 1057597a307179c44a20da31fb794ba0, type: 2}
+  - {fileID: 11400000, guid: 6ba2931e261474243a961302a2786d11, type: 2}
+  - {fileID: 11400000, guid: 92cbc2ddf6c5de448b348eda7f89026a, type: 2}
+  - {fileID: 11400000, guid: 7573988610051c246a14d3e5296a6c3d, type: 2}
+  - {fileID: 11400000, guid: 731a7af05f5e6744dac11e8c88fd1e97, type: 2}
+  - {fileID: 11400000, guid: b36a5dc114c8a8c40bdf4583f9e7ca0d, type: 2}
+  - {fileID: 11400000, guid: 77ce7a7376ab5e94e8c9579f1444a74a, type: 2}
+  - {fileID: 11400000, guid: 95f4e6908a78a8548934fc1f2ca2fd23, type: 2}
+  - {fileID: 11400000, guid: f5995e1a4a8f2284495d9d2078842517, type: 2}
+  - {fileID: 11400000, guid: cb99a5438d8d38b48bc63edcf6caa663, type: 2}
+  - {fileID: 11400000, guid: a8332e8e6ba915143a33e63ea74aa874, type: 2}
+  - {fileID: 11400000, guid: b3a8a03817d5cab42b81e1ebbf0a4ba2, type: 2}
+  - {fileID: 11400000, guid: 3e4fa3a94070d984a8fa2941f50860a5, type: 2}
+  - {fileID: 11400000, guid: 765c65887637f8d4e9b09baf29b653a2, type: 2}
+  - {fileID: 11400000, guid: afbce4b39e0fde342a447cc2d2ac35bb, type: 2}
+  - {fileID: 11400000, guid: 71aa694d5b2e55840a694b68786faecb, type: 2}
+  - {fileID: 11400000, guid: 216e11deedcbc9b46a50c78d6ce3e4ba, type: 2}

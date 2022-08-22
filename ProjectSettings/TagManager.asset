@@ -38,6 +38,33 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UnderGround
+    uniqueID: 169016241
+    locked: 0
+  - name: UnderGroundDetails
+    uniqueID: 653053617
+    locked: 0
+  - name: Ground
+    uniqueID: 1262424971
+    locked: 0
+  - name: GroundDetails
+    uniqueID: 4290543621
+    locked: 0
+  - name: GroundMidGrass
+    uniqueID: 2411742307
+    locked: 0
+  - name: GroundMidGrassDetails
+    uniqueID: 819330861
+    locked: 0
+  - name: GroundHighGrass
+    uniqueID: 3815696337
+    locked: 0
+  - name: GroundHighGrassDetails
+    uniqueID: 2106326399
+    locked: 0
+  - name: OverGroundDetails
+    uniqueID: 2973502585
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e8e007899a3ed4682310a4192fcc60, type: 3}
+  m_Name: SmallVariations
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 94b232e5b13a89740a65190d4fbf09d6, type: 2}
+  - {fileID: 11400000, guid: 11e08160d7c25654fbbe090282b90b29, type: 2}
+  - {fileID: 11400000, guid: 578f952cbe81a5048b3b2d9e3f1b1abd, type: 2}
+  - {fileID: 11400000, guid: d1be132fafe786a4b8dca20501f8f2d8, type: 2}
+  - {fileID: 11400000, guid: a2db53aed18937e42b28624b9c9102d9, type: 2}
+  - {fileID: 11400000, guid: 2f5d3f8101518aa4d81d82b0ddab0f52, type: 2}
+  - {fileID: 11400000, guid: 86bb8719976e9b345884567c69d0592d, type: 2}

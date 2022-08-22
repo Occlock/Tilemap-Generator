@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e8e007899a3ed4682310a4192fcc60, type: 3}
+  m_Name: EarthTiles
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: f30c8d7ecf218404792e90f06bcc93ac, type: 2}
+  - {fileID: 11400000, guid: bcf4bdf03825d0c45b2446deaaf3dc0c, type: 2}
+  - {fileID: 11400000, guid: d919905f3164aca48bbf4200ceea6359, type: 2}
+  - {fileID: 11400000, guid: f54bb87611772b548b8d2b161237fd45, type: 2}
