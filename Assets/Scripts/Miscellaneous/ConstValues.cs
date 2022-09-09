@@ -18,4 +18,9 @@ public static class ConstValues
 
     public const int spaceSecurityForGrassDepth = 1;
 
+
+    //public const int midGroundCut = 3;
+    //public const int highGroundCut = 9;
+    public const int midGroundCut = 3;
+    public const int highGroundCut = 9;
 }

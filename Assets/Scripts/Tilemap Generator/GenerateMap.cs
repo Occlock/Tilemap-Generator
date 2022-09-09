@@ -37,6 +37,7 @@ public class GenerateMap : Noise
     protected Tilemap[] tilemaps;
     protected string[,] RegionNameInTilePos { get; set; }
     protected string[,] SubRegionNameInTilePos { get; set; }
+    protected string[,] SubOfSubRegionNameInTilePos { get; set; }
 
     private void Init()
     {
@@ -61,6 +62,7 @@ public class GenerateMap : Noise
 
         RegionNameInTilePos = new string[MapWidth, mapHeight];
         SubRegionNameInTilePos = new string[MapWidth, mapHeight];
+        SubOfSubRegionNameInTilePos = new string[MapWidth, mapHeight];
 
         TilemapsConfig();
     }

@@ -29,5 +29,9 @@ public static class Names
     public const string smallRocks = "smallRocks";
     public const string earthSmallVariation = "earthSmallVariation";
     public const string earthBigVariation = "earthBigVariation";
+    public const string allGrassDetails = "allGrassDetails";
+    public const string baseGrassDetails = "baseGrassDetails";
+    public const string midGrassDetails = "midGrassDetails";
+    public const string highGrassDetails = "highGrassDetails";
 
 }

@@ -36,8 +36,9 @@ public class ForestMap : GenerateMap
     private void SetTileGround()
     {
         SetTileGroundBaseGrass();
-        //SetTileGroundMidGrass();
-        //SetTileGroundHighGrass();
+        SetTileGroundMidGrass();
+        SetTileGroundHighGrass();
+        //SetTileMidGroundTest();
     }
 
     private void SetTileGroundBaseGrass()
@@ -47,6 +48,9 @@ public class ForestMap : GenerateMap
     }
     private void SetTileGroundMidGrass()
     {
+        SetTileMidGrassGround();
+        SetAutoBorder(Names.mediumGrassName, SubRegionNameInTilePos);
+
         #region Drawing midGrass in the map prototype yet
         ////GenerateGroundMidGrass(out GenerateSpecificZone generateSpecificZone, 8, 8);
         ////FinalFormGroundMidGrass(ref generateSpecificZone);
@@ -69,6 +73,8 @@ public class ForestMap : GenerateMap
     }
     private void SetTileGroundHighGrass()
     {
+        SetTileHighGrassGround();
+        SetAutoBorder(Names.highGrassName, SubOfSubRegionNameInTilePos);
         #region Drawing highGrass in the map prototype yet
         //GenerateGroundHighGrass(out GenerateSpecificZone generateSpecificZone, 15, 15);
         //GenerateGroundHighGrass(out GenerateSpecificZone generateSpecificZone1, 8, 8);
@@ -79,10 +85,17 @@ public class ForestMap : GenerateMap
         //PopulateSubRegionNameInTilePosInfo(ref generateSpecificZone);
         //PopulateSubRegionNameInTilePosInfo(ref generateSpecificZone1);
         //PopulateSubRegionNameInTilePosInfo(ref generateSpecificZone2);
-        //SetAutoBorder(Names.highGrassName, SubRegionNameInTilePos);
+        //SetAutoBorder(Names.highGrassName, SubOfSubRegionNameInTilePos);
         ////SetTileGrassGround();
         ////SetAutoBorder(Names.baseGrassName);
         #endregion Drawing highGrass in the map prototype yet
+    }
+    private void SetTileMidGroundTest()
+    {
+        //SubRegionNameInTilePos = new GroundHeightDetails(RegionNameInTilePos, ConstValues.midGroundCut, Names.mediumGrassName).GetGroundHeightDetailsRegion();
+        //GroundHeightDetails groundHeightDetails = new GroundHeightDetails(RegionNameInTilePos, ConstValues.midGroundCut, Names.mediumGrassName);
+        //groundHeightDetails.Cutting(ConstValues.midGroundCut);
+        //groundHeightDetails.DrawSubRegionPos();
     }
 
     private void SetTileUnderGroundDetails()
@@ -90,6 +103,44 @@ public class ForestMap : GenerateMap
         SetBigVariationsUnderGroundDetails(out List<Vector3Int[]> bigVariations);
         SetSmallVariationsUnderGroundDetailsAroundBigVariations(bigVariations);
         SetSmallVariationsUnderGroundDetails();
+    }
+
+    private void SetTileMidGrassGround()
+    {
+        string[,] subRegionTemp = new GroundHeightDetails(RegionNameInTilePos, ConstValues.midGroundCut, Names.mediumGrassName).GetGroundHeightDetailsRegion();
+
+        CopySignificativeValueBidimensionalArrayToAnother(subRegionTemp, SubRegionNameInTilePos);
+
+        for (int y = 0; y < SubRegionNameInTilePos.GetLength(1); y++)
+        {
+            for (int x = 0; x < SubRegionNameInTilePos.GetLength(0); x++)
+            {
+                if (SubRegionNameInTilePos[x, y] == Names.mediumGrassName)
+                {
+                    Vector3Int pos = new Vector3Int(x, y, 0);
+                    tilemaps[(int)EnumTilemaps.GroundMidGrass].SetTile(pos, midGrassTile);
+                }
+            }
+        }
+    }
+
+    private void SetTileHighGrassGround()
+    {
+        string[,] subRegionTemp = new GroundHeightDetails(RegionNameInTilePos, ConstValues.highGroundCut, Names.highGrassName).GetGroundHeightDetailsRegion();
+
+        CopySignificativeValueBidimensionalArrayToAnother(subRegionTemp, SubOfSubRegionNameInTilePos);
+
+        for (int y = 0; y < SubOfSubRegionNameInTilePos.GetLength(1); y++)
+        {
+            for (int x = 0; x < SubOfSubRegionNameInTilePos.GetLength(0); x++)
+            {
+                if (SubOfSubRegionNameInTilePos[x, y] == Names.highGrassName)
+                {
+                    Vector3Int pos = new Vector3Int(x, y, 0);
+                    tilemaps[(int)EnumTilemaps.GroundHighGrass].SetTile(pos, highGrassTile);
+                }
+            }
+        }
     }
 
     private void GenerateGroundMidGrass(out GenerateSpecificZone generateSpecificZone, int xZoneSize, int yZoneSize)
@@ -126,14 +177,14 @@ public class ForestMap : GenerateMap
         }
 
         string[,] sourceArray = generateSpecificZone.GetSubRegionsInTilePos();
-        Helper.CopySignificativeValueBidimensionalArrayToAnother(sourceArray, SubRegionNameInTilePos);
+        CopySignificativeValueBidimensionalArrayToAnother(sourceArray, SubRegionNameInTilePos);
 
     }
 
     private void GenerateGroundHighGrass(out GenerateSpecificZone generateSpecificZone, int xZoneSize, int yZoneSize)
     {
         generateSpecificZone = new GenerateSpecificZone(tilemaps[(int)EnumTilemaps.GroundHighGrass], xZoneSize, yZoneSize, SubRegionNameInTilePos,
-                                                                Names.mediumGrassName, SubRegionNameInTilePos, Names.highGrassName);
+                                                                Names.mediumGrassName, SubOfSubRegionNameInTilePos, Names.highGrassName);
 
         int space = ConstValues.spaceSecurityForGrassDepth;
         int mapHeightLimit = MapHeight - (yZoneSize + space);
@@ -164,14 +215,14 @@ public class ForestMap : GenerateMap
         }
 
         string[,] sourceArray = generateSpecificZone.GetSubRegionsInTilePos();
-        Helper.CopySignificativeValueBidimensionalArrayToAnother(sourceArray, SubRegionNameInTilePos);
+        CopySignificativeValueBidimensionalArrayToAnother(sourceArray, SubRegionNameInTilePos);
 
     }
 
     private void PopulateSubRegionNameInTilePosInfo(ref GenerateSpecificZone generateSpecificZone)
     {
         string[,] sourceArray = generateSpecificZone.GetSubRegionsInTilePos();
-        Helper.CopySignificativeValueBidimensionalArrayToAnother(sourceArray, SubRegionNameInTilePos);
+        CopySignificativeValueBidimensionalArrayToAnother(sourceArray, SubRegionNameInTilePos);
     }
 
 
@@ -466,8 +517,68 @@ public class ForestMap : GenerateMap
 
     private void SetTileOverGroundDetails()
     {
+        GenerateHighGrassDetails();
+        GenerateAllGrassDetails();
         GenerateSmallRocks();
     }
+    private void GenerateHighGrassDetails()
+    {
+        AutoDetails autoDetails = new AutoDetails(Names.highGrassDetails);
+
+        for (int y = 0; y < MapHeight; y++)
+        {
+            for (int x = 0; x < MapWidth; x++)
+            {
+                if (SubOfSubRegionNameInTilePos[x, y] == Names.highGrassName)
+                {
+                    Vector2Int pos = new Vector2Int(x, y);
+
+                    if (HasntBorderInDetailGenerate(pos))
+                    {
+                        int prng = Random.Range(0, 100);
+
+                        if (prng < 2)
+                        {
+                            Vector3Int posXYZ = new Vector3Int(x, y, 0);
+
+                            if (!tilemaps[(int)EnumTilemaps.OverGroundDetails].HasTile(posXYZ))
+                                tilemaps[(int)EnumTilemaps.OverGroundDetails].SetTile(posXYZ, autoDetails.TileRandomlySelected());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void GenerateAllGrassDetails()
+    {
+        AutoDetails autoDetails = new AutoDetails(Names.allGrassDetails);
+
+        for (int y = 0; y < MapHeight; y++)
+        {
+            for (int x = 0; x < MapWidth; x++)
+            {
+                if (RegionNameInTilePos[x, y] == Names.baseGrassName)
+                {
+                    Vector2Int pos = new Vector2Int(x, y);
+
+                    if (HasntBorderInDetailGenerate(pos))
+                    {
+                        int prng = Random.Range(0, 100);
+
+                        if (prng < 5)
+                        {
+                            Vector3Int posXYZ = new Vector3Int(x, y, 0);
+
+                            if (!tilemaps[(int)EnumTilemaps.OverGroundDetails].HasTile(posXYZ))
+                                tilemaps[(int)EnumTilemaps.OverGroundDetails].SetTile(posXYZ, autoDetails.TileRandomlySelected());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
     private void GenerateSmallRocks()
     {
@@ -479,13 +590,17 @@ public class ForestMap : GenerateMap
             {
                 if (RegionNameInTilePos[x, y] == Names.baseGrassName)
                 {
-                    if ((SubRegionNameInTilePos[x, y] != Names.mediumGrassBorderName) && (SubRegionNameInTilePos[x, y] != Names.highGrassBorderName))
+                    Vector2Int pos = new Vector2Int(x, y);
+
+                    if (HasntBorderInDetailGenerate(pos))
                     {
                         int prng = Random.Range(0, 100);
                         if (prng < 5)
                         {
-                            Vector3Int pos = new Vector3Int(x, y, 0);
-                            tilemaps[(int)EnumTilemaps.OverGroundDetails].SetTile(pos, autoDetails.TileRandomlySelected());
+                            Vector3Int posXYZ = new Vector3Int(x, y, 0);
+
+                            if (!tilemaps[(int)EnumTilemaps.OverGroundDetails].HasTile(posXYZ))
+                                tilemaps[(int)EnumTilemaps.OverGroundDetails].SetTile(posXYZ, autoDetails.TileRandomlySelected());
                         }
                     }
                 }
@@ -499,6 +614,32 @@ public class ForestMap : GenerateMap
                         tilemaps[(int)EnumTilemaps.OverGroundDetails].SetTile(pos, autoDetails.TileRandomlySelected());
                     }
                 }
+            }
+        }
+    }
+
+    private bool HasntBorderInDetailGenerate(Vector2Int pos)
+    {
+        string border = " border";
+
+        if (RegionNameInTilePos[pos.x, pos.y] != null && RegionNameInTilePos[pos.x, pos.y].Contains(border))
+            return false;
+        if (SubRegionNameInTilePos[pos.x, pos.y] != null && SubRegionNameInTilePos[pos.x, pos.y].Contains(border))
+            return false;
+        if (SubOfSubRegionNameInTilePos[pos.x, pos.y] != null && SubOfSubRegionNameInTilePos[pos.x, pos.y].Contains(border))
+            return false;
+
+        return true;
+    }
+
+    private void CopySignificativeValueBidimensionalArrayToAnother(string[,] sourceArray, string[,] destinationArray)
+    {
+        for (int y = 0; y < sourceArray.GetLength(1); y++)
+        {
+            for (int x = 0; x < sourceArray.GetLength(0); x++)
+            {
+                if (sourceArray[x, y] != string.Empty && sourceArray[x, y] != null)
+                    destinationArray[x, y] = sourceArray[x, y];
             }
         }
     }

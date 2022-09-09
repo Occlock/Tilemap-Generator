@@ -27,6 +27,10 @@ public class AutoDetails
         {
             Names.earthSmallVariation => Resources.Load<SO_Tiles>("ScriptableObjects/SmallVariations"),
             Names.smallRocks => Resources.Load<SO_Tiles>("ScriptableObjects/SmallRocks"),
+            Names.allGrassDetails => Resources.Load<SO_Tiles>("ScriptableObjects/AllGrassDetails"),
+            Names.baseGrassDetails => Resources.Load<SO_Tiles>("ScriptableObjects/BaseGrassDetails"),
+            Names.midGrassDetails => Resources.Load<SO_Tiles>("ScriptableObjects/MidGrassDetails"),
+            Names.highGrassDetails => Resources.Load<SO_Tiles>("ScriptableObjects/HighGrassDetails"),
             _ => Resources.Load<SO_Tiles>(""),
         };
     }

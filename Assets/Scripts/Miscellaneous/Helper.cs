@@ -69,16 +69,4 @@ public static class Helper
 
         return newArray;
     }
-
-    public static void CopySignificativeValueBidimensionalArrayToAnother(string[,] sourceArray, string[,] destinationArray)
-    {
-        for (int y = 0; y < sourceArray.GetLength(1); y++)
-        {
-            for (int x = 0; x < sourceArray.GetLength(0); x++)
-            {
-                if (sourceArray[x, y] != string.Empty)
-                    destinationArray[x, y] = sourceArray[x, y];
-            }
-        }
-    }
 }
